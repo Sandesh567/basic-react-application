@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 
 export default function Clicker() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    parseInt(localStorage.getItem("count") ?? 0)
+  );
 
   useEffect(() => {
     // getting or retieving the item from local storage
@@ -9,8 +11,6 @@ export default function Clicker() {
     //we can specify what the below part should be like 0 or 1
     // localStorage.getItem("count") in this case this will output value
     // Nan and by using nullish we can make that value 0 0r 1
-    const savedCount = parseInt(localStorage.getItem("count") ?? 0);
-    setCount(savedCount);
   }, []);
 
   useEffect(() => {
